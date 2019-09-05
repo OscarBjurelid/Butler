@@ -1,4 +1,4 @@
-const { Router } = require('express') 
+import { Router } from 'express'; 
 
 
 const router = Router()
@@ -13,5 +13,19 @@ router.get('/', (req, res) => {
 })
 
 
+/**
+ * TESTING according to https://medium.com/@HolmesLaurence/integrating-node-and-python-6b8454bfc272
+ */
+router.get('/gambling', callD_alembert)
 
-module.exports = router
+
+function callD_alembert(req, res) {
+  // using spawn instead of exec, prefer a stream over a buffer
+  // to avoid maxBuffer issue
+
+  var spawn = require('child_process').spawn
+  var process = spawn('python3', ['../../sys/example_call.py'])
+}
+
+
+export default router

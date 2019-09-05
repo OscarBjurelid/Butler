@@ -1,5 +1,5 @@
 const Express    = require('express')
-const Routes     = require('./routes')
+const Routes     = require('./routes').default
 const Path       = require('path')
 
 const app = Express()
@@ -14,3 +14,4 @@ app.use('/', Routes)
 app.listen(port, () => {
     console.log(`Application listening on ${port}`)
 })
+
